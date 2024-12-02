@@ -1,11 +1,12 @@
 import { ThemeProvider } from "@/components/theme";
+import ReactQueryProvider from "@/react-query";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Opal",
+  title: "KoomAi",
   description: "Share AI Powered Videos with your friends",
 };
 
@@ -28,7 +29,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <ReactQueryProvider>{children}</ReactQueryProvider>
           </ThemeProvider>
         </body>
       </html>

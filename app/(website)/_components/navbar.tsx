@@ -8,8 +8,13 @@ const LandingPageNavbar = () => {
     <div className="flex w-full justify-between items-center">
       <div className="text-3xl font-semibold flex items-center gap-x-3">
         <Menu className="w-8 h-8" />
-        <Image src="/opal-logo.svg" alt="Opal-logo" width={40} height={40} />
-        Opal
+        <Image
+          src="/koom-ai-logo.svg"
+          alt="Koom-Ai-logo"
+          width={40}
+          height={40}
+        />
+        KoomAi
       </div>
       <div className="hidden gap-x-10 items-center lg:flex">
         <Link
