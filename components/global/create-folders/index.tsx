@@ -3,7 +3,7 @@ type Props = {
 };
 
 const CreateFolders = ({ workspaceId }: Props) => {
-  return <div>CreateFolders : {workspaceId}</div>;
+  return <div>CreateFolders : {workspaceId.charAt(0)}</div>;
 };
 
 export default CreateFolders;

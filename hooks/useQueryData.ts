@@ -12,27 +12,24 @@ export const useQueryData = (
 ) => {
   const {
     data,
-    error,
-    isError,
-    isLoading,
     isPending,
     isFetched,
     refetch,
+    isLoading,
+    isError,
     isFetching,
   } = useQuery({
     queryKey,
     queryFn,
     enabled,
   });
-
   return {
     data,
-    error,
-    isError,
-    isLoading,
     isPending,
     isFetched,
     refetch,
+    isLoading,
+    isError,
     isFetching,
   };
 };

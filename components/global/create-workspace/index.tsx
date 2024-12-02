@@ -8,8 +8,22 @@ import Modal from "../modal";
 type Props = {};
 
 const CreateWorkspace = (props: Props) => {
-  const { data } = useQueryData(["user-workspaces"], getWorkSpaces);
-  const { data: plan } = data as {
+  const { data, isLoading, isError } = useQueryData(
+    ["user-workspaces"],
+    getWorkSpaces
+  );
+
+  console.log("data", data);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError || !data) {
+    return <div>Error loading data</div>;
+  }
+
+  const plan = data as {
     status: number;
     data: {
       subscription: {
@@ -18,11 +32,11 @@ const CreateWorkspace = (props: Props) => {
     };
   };
 
-  if (plan.subscription?.plan === "FREE") {
+  if (plan.data.subscription?.plan === "FREE") {
     return <>FREE</>;
   }
 
-  if (plan.subscription?.plan === "PRO")
+  if (plan.data.subscription?.plan === "PRO") {
     return (
       <Modal
         title="Create a Workspace"
@@ -37,6 +51,9 @@ const CreateWorkspace = (props: Props) => {
         <WorkSpaceForm />
       </Modal>
     );
+  }
+
+  return <div>Kishor Kumar Paroi</div>;
 };
 
 export default CreateWorkspace;
